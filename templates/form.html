@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Background</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Educational Background</h1>
+        <p class="disclaimer">Disclaimer: Please mark N/A if not applicable</p>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flash-messages">
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+            <table>
+                <thead>
+                    <tr>
+                        <th>S#</th>
+                        <th>N/A</th>
+                        <th>Name</th>
+                        <th>Institute</th>
+                        <th>GPA/Grade</th>
+                        <th>From/To</th>
+                        <th>Majors</th>
+                        <th>Upload Relevant Documents</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td></td>
+                        <td>Matriculation / O-Level (Front and Back side)</td>
+                        <td><input type="text" name="institute1" placeholder="Institute" required></td>
+                        <td><input type="text" name="gpa1" placeholder="GPA/Grade" required></td>
+                        <td>
+                            <input type="date" name="from_date1" required><br>
+                            <input type="date" name="to_date1" required>
+                        </td>
+                        <td><input type="text" name="majors1" placeholder="Majors" required></td>
+                        <td>
+                            <input type="file" name="file1" multiple accept=".pdf, .jpg, .jpeg, .png" required><br>
+                            <small>Marksheet + Matric Certificate</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td><input type="checkbox" name="na2"></td>
+                        <td>Intermediate / A-Level (Front and Back side)</td>
+                        <td><input type="text" name="institute2" placeholder="Institute" ></td>
+                        <td><input type="text" name="gpa2" placeholder="GPA/Grade" ></td>
+                        <td>
+                            <input type="date" name="from_date2" ><br>
+                            <input type="date" name="to_date2" >
+                        </td>
+                        <td><input type="text" name="majors2" placeholder="Majors" ></td>
+                        <td>
+                            <input type="file" name="file2" multiple accept=".pdf, .jpg, .jpeg, .png" ><br>
+                            <small>Marksheet + Intermediate Certificate</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td><input type="checkbox" name="na3"></td>
+                        <td>Graduation (Front and Back side)</td>
+                        <td><input type="text" name="institute3" placeholder="Institute" ></td>
+                        <td><input type="text" name="gpa3" placeholder="GPA/Grade" ></td>
+                        <td>
+                            <input type="date" name="from_date3" ><br>
+                            <input type="date" name="to_date3" >
+                        </td>
+                        <td><input type="text" name="majors3" placeholder="Majors" ></td>
+                        <td>
+                            <input type="file" name="file3" multiple accept=".pdf, .jpg, .jpeg, .png" ><br>
+                            <small>Marksheet/Transcript + Degree</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td><input type="checkbox" name="na4"></td>
+                        <td>Post Graduation (Front and Back side)</td>
+                        <td><input type="text" name="institute4" placeholder="Institute" ></td>
+                        <td><input type="text" name="gpa4" placeholder="GPA/Grade" ></td>
+                        <td>
+                            <input type="date" name="from_date4" ><br>
+                            <input type="date" name="to_date4" >
+                        </td>
+                        <td><input type="text" name="majors4" placeholder="Majors" ></td>
+                        <td>
+                            <input type="file" name="file4" multiple accept=".pdf, .jpg, .jpeg, .png" ><br>
+                            <small>Marksheet/Transcript + Degree</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td><input type="checkbox" name="na5"></td>
+                        <td>DAE (Front and Back side)</td>
+                        <td><input type="text" name="institute5" placeholder="Institute" ></td>
+                        <td><input type="text" name="gpa5" placeholder="GPA/Grade" ></td>
+                        <td>
+                            <input type="date" name="from_date5" ><br>
+                            <input type="date" name="to_date5" >
+                        </td>
+                        <td><input type="text" name="majors5" placeholder="Majors" ></td>
+                        <td>
+                            <input type="file" name="file5" multiple accept=".pdf, .jpg, .jpeg, .png" ><br>
+                            <small>Marksheet/Transcript + Degree</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6.</td>
+                        <td><input type="checkbox" name="na6"></td>
+                        <td>Other Certification(s) (Front and Back side)</td>
+                        <td colspan="3"><input type="text" name="institute6" placeholder="Institute" ></td>
+                        <td colspan="2">
+                            <input type="file" name="file6" multiple accept=".pdf, .jpg, .jpeg, .png" ><br>
+                            <small>Marksheet/Certificate</small>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="save-button-container">
+                <button type="submit" class="save-button">Save</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
